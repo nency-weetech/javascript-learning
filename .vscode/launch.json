@@ -8,7 +8,7 @@
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "http://localhost:8080",
+            "url": "file:///home/nency/Downloads/control-03-monster-killer-starting-project/index.html",
             "webRoot": "${workspaceFolder}"
         }
     ]

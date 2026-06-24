@@ -21,6 +21,7 @@ let currentMonsterHealth = chosenMaxLife;
 let currentPlayerHealth = chosenMaxLife;
 let hasBonusLife = true;
 let battleLog = [];
+let lastLoggedEntry;
 
 adjustHealthBars(chosenMaxLife);
 
@@ -181,10 +182,14 @@ function printLogHandler() {
 
     let i=0;
     for (const logEntry of battleLog){
+      if((!lastLoggedEntry && lastLoggedEntry !==0) || lastLoggedEntry < i) {
         console.log(`#${i}`);
         for(const key in logEntry){
             console.log(`${key} => ${logEntry[key]}`)
         }
+        lastLoggedEntry = i;
+        break;
+      }
         i++;
     }
 }
