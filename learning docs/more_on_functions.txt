@@ -1,0 +1,437 @@
+# Section 6: More on Functions
+
+==================================================
+1. What is a Function?
+==================================================
+
+A function is a reusable block of code.
+
+Example:
+
+function greet() {
+  console.log("Hello");
+}
+
+greet();
+
+==================================================
+2. Function Parameters
+==================================================
+
+Parameters receive values.
+
+Example:
+
+function greet(name) {
+  console.log("Hello " + name);
+}
+
+greet("Nency");
+
+==================================================
+3. Return Statement
+==================================================
+
+Returns a value from a function.
+
+Example:
+
+function add(a, b) {
+  return a + b;
+}
+
+let result = add(5, 3);
+
+==================================================
+4. Function Declaration
+==================================================
+
+Traditional way of creating functions.
+
+Example:
+
+function sayHi() {
+  console.log("Hi");
+}
+
+Key Point:
+- Hoisted
+- Can be called before declaration
+
+==================================================
+5. Function Expression
+==================================================
+
+Function stored in a variable.
+
+Example:
+
+const greet = function() {
+  console.log("Hello");
+};
+
+Key Point:
+- Not hoisted like function declarations
+
+==================================================
+6. Anonymous Functions
+==================================================
+
+Functions without a name.
+
+Example:
+
+const greet = function() {
+  console.log("Hello");
+};
+
+Mostly used as callbacks.
+
+==================================================
+7. Arrow Functions
+==================================================
+
+Shorter syntax introduced in ES6.
+
+Example:
+
+const add = (a, b) => a + b;
+
+const greet = () => {
+  console.log("Hello");
+};
+
+Benefits:
+- Short syntax
+- Common in modern JS
+
+==================================================
+8. Arrow Function & this
+==================================================
+
+Arrow functions do NOT create their own this.
+
+They inherit this from parent scope.
+
+Important for:
+- Objects
+- Events
+- Classes
+
+==================================================
+9. Default Parameters
+==================================================
+
+Provide default values.
+
+Example:
+
+function greet(name = "Guest") {
+  console.log(name);
+}
+
+greet();
+
+Output:
+Guest
+
+==================================================
+10. Rest Parameters (...)
+==================================================
+
+Collect multiple arguments into array.
+
+Example:
+
+function sum(...numbers) {
+  console.log(numbers);
+}
+
+sum(1,2,3,4);
+
+Output:
+[1,2,3,4]
+
+==================================================
+11. Spread Operator (...)
+==================================================
+
+Expands arrays or objects.
+
+Example:
+
+const nums = [1,2,3];
+
+console.log(...nums);
+
+Output:
+1 2 3
+
+Very Common in React & Modern JS.
+
+==================================================
+12. Functions as Values
+==================================================
+
+Functions can be stored in variables.
+
+Example:
+
+const greet = function() {
+  console.log("Hello");
+};
+
+==================================================
+13. Functions as Arguments
+==================================================
+
+Functions can be passed to other functions.
+
+Example:
+
+function greet() {
+  console.log("Hello");
+}
+
+function execute(fn) {
+  fn();
+}
+
+execute(greet);
+
+==================================================
+14. Callback Functions
+==================================================
+
+Function passed into another function.
+
+Example:
+
+function greet(name, callback) {
+  console.log(name);
+  callback();
+}
+
+greet("Nency", function() {
+  console.log("Done");
+});
+
+Used heavily in:
+- Events
+- APIs
+- Async Programming
+
+==================================================
+15. Higher Order Functions
+==================================================
+
+A function that:
+- Accepts another function OR
+- Returns a function
+
+Example:
+
+function execute(fn) {
+  fn();
+}
+
+==================================================
+16. Nested Functions
+==================================================
+
+Functions inside functions.
+
+Example:
+
+function outer() {
+
+  function inner() {
+    console.log("Inside");
+  }
+
+  inner();
+}
+
+==================================================
+17. Closures
+==================================================
+
+Most Important Topic.
+
+A closure remembers variables from its outer scope even after outer function finishes.
+
+Example:
+
+function outer() {
+
+  let count = 0;
+
+  return function() {
+    count++;
+    console.log(count);
+  };
+}
+
+const counter = outer();
+
+counter(); // 1
+counter(); // 2
+counter(); // 3
+
+Use Cases:
+- Private variables
+- Counters
+- Data hiding
+
+Interview Favorite Topic.
+
+==================================================
+18. Recursion
+==================================================
+
+Function calling itself.
+
+Example:
+
+function countdown(n) {
+
+  if(n === 0) {
+    return;
+  }
+
+  console.log(n);
+
+  countdown(n - 1);
+}
+
+countdown(5);
+
+==================================================
+19. Arguments Object
+==================================================
+
+Available in normal functions.
+
+Example:
+
+function test() {
+  console.log(arguments);
+}
+
+Not available in arrow functions.
+
+Today Rest Parameters (...) are preferred.
+
+==================================================
+20. Hoisting & Functions
+==================================================
+
+Function Declaration:
+
+sayHi();
+
+function sayHi() {
+  console.log("Hi");
+}
+
+Works.
+
+Function Expression:
+
+sayHi();
+
+const sayHi = function() {};
+
+Error.
+
+==================================================
+21. Pure Functions
+==================================================
+
+Always return same output for same input.
+
+Example:
+
+function add(a, b) {
+  return a + b;
+}
+
+Benefits:
+- Easy testing
+- Predictable behavior
+
+==================================================
+22. Side Effects
+==================================================
+
+Anything that affects outside world.
+
+Examples:
+- DOM Updates
+- API Calls
+- Local Storage
+- Console Logs
+
+Example:
+
+console.log("Hello");
+
+This is a side effect.
+
+==================================================
+23. Factory Functions
+==================================================
+
+Functions that create objects.
+
+Example:
+
+function createUser(name) {
+
+  return {
+    name: name
+  };
+}
+
+const user = createUser("Nency");
+
+==================================================
+Quick Revision
+==================================================
+
+Function Declaration
+→ Hoisted function
+
+Function Expression
+→ Function stored in variable
+
+Arrow Function
+→ Short ES6 syntax
+
+Default Parameters
+→ Default values
+
+Rest (...)
+→ Collect values
+
+Spread (...)
+→ Expand values
+
+Callback
+→ Function passed as argument
+
+Higher Order Function
+→ Uses another function
+
+Closure
+→ Remembers outer variables
+
+Recursion
+→ Function calls itself
+
+Pure Function
+→ Same input = same output
+
+Factory Function
+→ Creates objects
+
