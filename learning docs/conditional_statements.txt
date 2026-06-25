@@ -1,0 +1,347 @@
+# Section 4: Working with Control Structures
+(If Statements, Loops, Error Handling)
+
+========================================
+1. Control Structures
+========================================
+
+Control structures decide how code executes.
+
+Main Types:
+1. Conditional Statements (if, else)
+2. Loops (for, while)
+3. Error Handling (try...catch)
+
+----------------------------------------
+Example
+----------------------------------------
+
+let age = 20;
+
+if (age >= 18) {
+  console.log("Adult");
+}
+
+========================================
+2. If Statements
+========================================
+
+Used to execute code only when a condition is true.
+
+Syntax:
+
+if (condition) {
+  // code
+}
+
+Example:
+
+let age = 20;
+
+if (age >= 18) {
+  console.log("Eligible");
+}
+
+Key Points:
+- Condition must return true or false.
+- Most common decision-making statement.
+
+========================================
+3. if...else
+========================================
+
+Runs one block if true and another if false.
+
+Example:
+
+let age = 15;
+
+if (age >= 18) {
+  console.log("Adult");
+} else {
+  console.log("Minor");
+}
+
+========================================
+4. else if
+========================================
+
+Used when multiple conditions exist.
+
+Example:
+
+let marks = 75;
+
+if (marks >= 90) {
+  console.log("A");
+} else if (marks >= 70) {
+  console.log("B");
+} else {
+  console.log("C");
+}
+
+========================================
+5. Truthy & Falsy Values
+========================================
+
+Falsy Values:
+- false
+- 0
+- ""
+- null
+- undefined
+- NaN
+
+Everything else is Truthy.
+
+Example:
+
+let name = "";
+
+if (name) {
+  console.log("Has value");
+} else {
+  console.log("Empty");
+}
+
+========================================
+6. Logical Operators
+========================================
+
+AND (&&)
+Both conditions must be true.
+
+Example:
+
+if (age > 18 && age < 60)
+
+OR (||)
+At least one condition must be true.
+
+Example:
+
+if (role === "admin" || role === "manager")
+
+NOT (!)
+Reverses result.
+
+Example:
+
+if (!isLoggedIn)
+
+========================================
+7. Ternary Operator
+========================================
+
+Short version of if...else.
+
+Syntax:
+
+condition ? value1 : value2
+
+Example:
+
+let result = age >= 18 ? "Adult" : "Minor";
+
+========================================
+8. Switch Statement
+========================================
+
+Used when checking multiple fixed values.
+
+Example:
+
+let day = "Monday";
+
+switch(day) {
+  case "Monday":
+    console.log("Start");
+    break;
+
+  case "Friday":
+    console.log("Weekend Soon");
+    break;
+
+  default:
+    console.log("Normal Day");
+}
+
+Key Point:
+- break prevents execution of next cases.
+
+========================================
+9. For Loop
+========================================
+
+Used when number of iterations is known.
+
+Example:
+
+for(let i = 1; i <= 5; i++) {
+  console.log(i);
+}
+
+Structure:
+
+for(initialization; condition; increment)
+
+========================================
+10. While Loop
+========================================
+
+Runs while condition remains true.
+
+Example:
+
+let i = 1;
+
+while(i <= 5) {
+  console.log(i);
+  i++;
+}
+
+========================================
+11. do...while Loop
+========================================
+
+Executes at least once.
+
+Example:
+
+let i = 1;
+
+do {
+  console.log(i);
+  i++;
+} while(i <= 5);
+
+========================================
+12. break
+========================================
+
+Stops loop immediately.
+
+Example:
+
+for(let i = 1; i <= 10; i++) {
+  if(i === 5) {
+    break;
+  }
+  console.log(i);
+}
+
+Output:
+1 2 3 4
+
+========================================
+13. continue
+========================================
+
+Skips current iteration.
+
+Example:
+
+for(let i = 1; i <= 5; i++) {
+  if(i === 3) {
+    continue;
+  }
+  console.log(i);
+}
+
+Output:
+1 2 4 5
+
+========================================
+14. Error Handling
+========================================
+
+Errors can crash program execution.
+
+Use:
+try
+catch
+finally
+
+========================================
+15. try...catch
+========================================
+
+try:
+Code that may fail.
+
+catch:
+Handles error.
+
+Example:
+
+try {
+  console.log(user.name);
+} catch(error) {
+  console.log("Something went wrong");
+}
+
+========================================
+16. Error Object
+========================================
+
+Provides error details.
+
+Example:
+
+try {
+  undefinedFunction();
+} catch(error) {
+  console.log(error.message);
+}
+
+Useful Properties:
+- error.message
+- error.name
+
+========================================
+17. finally
+========================================
+
+Always executes.
+
+Example:
+
+try {
+  console.log("Run");
+} catch(error) {
+  console.log(error);
+} finally {
+  console.log("Always Runs");
+}
+
+========================================
+18. Throwing Custom Errors
+========================================
+
+Create your own error.
+
+Example:
+
+let age = 15;
+
+if(age < 18) {
+  throw new Error("Age must be 18+");
+}
+
+========================================
+Quick Revision
+========================================
+
+if            -> Single condition
+if...else     -> Two outcomes
+else if       -> Multiple conditions
+switch        -> Fixed value checks
+for           -> Known iterations
+while         -> Condition based loop
+do...while    -> Runs at least once
+break         -> Stop loop
+continue      -> Skip iteration
+try...catch   -> Handle errors
+finally       -> Always execute
+throw         -> Create custom error
+
