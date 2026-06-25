@@ -1,0 +1,357 @@
+# Section 5: Behind the Scenes & The Past, Present and Future of JavaScript
+(ES3, ES5, ES6+)
+
+==================================================
+1. What is ECMAScript (ES)?
+==================================================
+
+JavaScript = Language
+ECMAScript = Official Specification/Standard
+
+ECMAScript defines:
+- Syntax
+- Features
+- Rules
+
+Browsers implement these standards.
+
+Example:
+ES6 introduced:
+- let
+- const
+- Classes
+- Arrow Functions
+- Template Literals
+
+==================================================
+2. JavaScript History
+==================================================
+
+1995:
+- Created by Brendan Eich
+- Developed in just 10 days
+
+Main Versions:
+
+ES3 (1999)
+ES5 (2009)
+ES6 / ES2015 (2015)
+ES7+ (2016 onwards)
+
+==================================================
+3. Why JavaScript Has Weird Behavior
+==================================================
+
+JavaScript was created quickly.
+To avoid breaking old websites, many strange behaviors remain.
+
+Example:
+
+console.log("5" + 2);
+
+Output:
+52
+
+Because number gets converted to string.
+
+Example:
+
+console.log("5" - 2);
+
+Output:
+3
+
+Because string gets converted to number.
+
+==================================================
+4. Backward Compatibility
+==================================================
+
+Old JavaScript code should continue working.
+
+Example:
+Code written years ago should still run today.
+
+This is why some strange language behavior still exists.
+
+==================================================
+5. Interpreted vs Compiled
+==================================================
+
+Old Understanding:
+JavaScript = Interpreted Language
+
+Modern Reality:
+JavaScript engines compile and optimize code before execution.
+
+Examples:
+- Chrome → V8 Engine
+- Firefox → SpiderMonkey
+
+Interview Point:
+JavaScript is JIT (Just In Time) compiled.
+
+==================================================
+6. JavaScript Engine
+==================================================
+
+Engine executes JavaScript code.
+
+Popular Engines:
+
+Chrome → V8
+Edge → V8
+Firefox → SpiderMonkey
+Safari → JavaScriptCore
+
+==================================================
+7. Parsing
+==================================================
+
+Engine reads source code and checks syntax.
+
+Example:
+
+let age = 20;
+
+Engine converts code into internal structure.
+
+==================================================
+8. Compilation
+==================================================
+
+Engine converts JS code into machine-understandable instructions.
+
+This improves performance.
+
+==================================================
+9. Execution
+==================================================
+
+After parsing and compilation,
+code executes line by line.
+
+==================================================
+10. Browser APIs
+==================================================
+
+JavaScript itself does NOT provide:
+
+- DOM
+- fetch()
+- setTimeout()
+- localStorage()
+
+These are provided by Browser APIs.
+
+Example:
+
+document.querySelector()
+
+This comes from browser, not core JavaScript.
+
+==================================================
+11. Garbage Collection
+==================================================
+
+JavaScript automatically removes unused memory.
+
+Example:
+
+let user = {
+  name: "Nency"
+};
+
+user = null;
+
+Unused memory will eventually be cleaned.
+
+Developer doesn't manually free memory.
+
+==================================================
+12. Hoisting
+==================================================
+
+Declarations are moved to top internally before execution.
+
+var Example:
+
+console.log(name);
+
+var name = "Nency";
+
+Output:
+undefined
+
+Because declaration is hoisted.
+
+Internally:
+
+var name;
+
+console.log(name);
+
+name = "Nency";
+
+==================================================
+13. let & const Hoisting
+==================================================
+
+They are hoisted too,
+but remain in Temporal Dead Zone (TDZ).
+
+Example:
+
+console.log(age);
+
+let age = 20;
+
+Output:
+ReferenceError
+
+Important:
+Never access let/const before declaration.
+
+==================================================
+14. Strict Mode
+==================================================
+
+Helps catch mistakes.
+
+Syntax:
+
+"use strict";
+
+Benefits:
+- Prevents accidental globals
+- Throws more errors
+- Safer code
+
+Example:
+
+"use strict";
+
+x = 10;
+
+Output:
+ReferenceError
+
+==================================================
+15. var vs let vs const
+==================================================
+
+var
+- Function scoped
+- Can redeclare
+- Hoisted
+
+let
+- Block scoped
+- Can reassign
+- Cannot redeclare
+
+const
+- Block scoped
+- Cannot reassign
+- Preferred by default
+
+Example:
+
+const name = "Nency";
+
+==================================================
+16. Block Scope
+==================================================
+
+Variables declared with let/const exist only inside block.
+
+Example:
+
+if(true) {
+  let age = 20;
+}
+
+console.log(age);
+
+Output:
+Error
+
+==================================================
+17. Global Scope
+==================================================
+
+Variables accessible everywhere.
+
+Example:
+
+let userName = "Nency";
+
+==================================================
+18. Function Scope
+==================================================
+
+Variables exist only inside function.
+
+Example:
+
+function greet() {
+  let msg = "Hello";
+}
+
+console.log(msg);
+
+Output:
+Error
+
+==================================================
+19. ES6 Revolution
+==================================================
+
+Most Important ES6 Features:
+
+✓ let
+✓ const
+✓ Arrow Functions
+✓ Classes
+✓ Template Literals
+✓ Destructuring
+✓ Spread Operator
+✓ Modules
+✓ Promises
+
+These changed modern JavaScript completely.
+
+==================================================
+20. Why Learn Modern JavaScript?
+==================================================
+
+Almost every modern project uses ES6+.
+
+Node.js
+React
+Next.js
+Angular
+Vue
+
+All rely heavily on ES6+ features.
+
+==================================================
+Quick Revision
+==================================================
+
+ECMAScript  → JavaScript standard
+ES3         → Old JavaScript
+ES5         → Improved JavaScript
+ES6         → Modern JavaScript
+Engine      → Executes code
+V8          → Chrome Engine
+Parsing     → Read code
+Compilation → Optimize code
+Execution   → Run code
+Hoisting    → Declarations moved internally
+TDZ         → let/const inaccessible before declaration
+Strict Mode → Safer JavaScript
+var         → Old variable keyword
+let         → Reassignable variable
+const       → Fixed reference variable
+Garbage Collection → Automatic memory cleanup
