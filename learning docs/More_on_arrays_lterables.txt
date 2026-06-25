@@ -1,0 +1,464 @@
+# Section 8: More on Arrays & Iterables
+
+==================================================
+1. What is an Array?
+==================================================
+
+Array stores multiple values in a single variable.
+
+Example:
+
+const fruits = ["Apple", "Mango", "Banana"];
+
+==================================================
+2. What are Iterables?
+==================================================
+
+Iterable = Anything that can be looped over.
+
+Examples:
+- Arrays
+- Strings
+- Maps
+- Sets
+
+Example:
+
+for (const char of "Hello") {
+  console.log(char);
+}
+
+==================================================
+3. Creating Arrays
+==================================================
+
+Example:
+
+const numbers = [1, 2, 3];
+
+OR
+
+const numbers = new Array(1, 2, 3);
+
+Preferred:
+Use []
+
+==================================================
+4. Accessing Elements
+==================================================
+
+Example:
+
+const fruits = ["Apple", "Mango"];
+
+console.log(fruits[0]);
+
+Output:
+Apple
+
+==================================================
+5. Adding Elements
+==================================================
+
+push() -> End
+
+const arr = [1,2];
+arr.push(3);
+
+Result:
+[1,2,3]
+
+unshift() -> Beginning
+
+arr.unshift(0);
+
+Result:
+[0,1,2,3]
+
+==================================================
+6. Removing Elements
+==================================================
+
+pop() -> Remove last
+
+arr.pop();
+
+shift() -> Remove first
+
+arr.shift();
+
+==================================================
+7. splice()
+==================================================
+
+Add, Remove, Replace elements.
+
+Remove:
+
+const arr = [1,2,3,4];
+
+arr.splice(1,2);
+
+Result:
+[1,4]
+
+Add:
+
+arr.splice(1,0,"New");
+
+Replace:
+
+arr.splice(1,1,"Updated");
+
+Very Important Method.
+
+==================================================
+8. slice()
+==================================================
+
+Copies part of array.
+
+Original array unchanged.
+
+Example:
+
+const arr = [1,2,3,4];
+
+const copy = arr.slice(1,3);
+
+Result:
+[2,3]
+
+==================================================
+9. concat()
+==================================================
+
+Merge arrays.
+
+Example:
+
+const a = [1,2];
+const b = [3,4];
+
+const result = a.concat(b);
+
+Result:
+[1,2,3,4]
+
+==================================================
+10. indexOf()
+==================================================
+
+Find element position.
+
+Example:
+
+const arr = ["Apple","Mango"];
+
+arr.indexOf("Mango");
+
+Output:
+1
+
+==================================================
+11. includes()
+==================================================
+
+Checks existence.
+
+Example:
+
+arr.includes("Apple");
+
+Output:
+true
+
+==================================================
+12. find()
+==================================================
+
+Returns first matching element.
+
+Example:
+
+const users = [
+  {id:1},
+  {id:2}
+];
+
+const user = users.find(u => u.id === 2);
+
+==================================================
+13. findIndex()
+==================================================
+
+Returns matching index.
+
+Example:
+
+users.findIndex(u => u.id === 2);
+
+==================================================
+14. filter()
+==================================================
+
+Returns all matching items.
+
+Example:
+
+const nums = [1,2,3,4];
+
+const result =
+nums.filter(n => n > 2);
+
+Result:
+[3,4]
+
+Very Common.
+
+==================================================
+15. map()
+==================================================
+
+Transforms array data.
+
+Example:
+
+const nums = [1,2,3];
+
+const result =
+nums.map(n => n * 2);
+
+Result:
+[2,4,6]
+
+Very Common.
+
+==================================================
+16. reduce()
+==================================================
+
+Combines array into single value.
+
+Example:
+
+const nums = [1,2,3];
+
+const total =
+nums.reduce((sum,n) => sum + n, 0);
+
+Result:
+6
+
+Interview Favorite.
+
+==================================================
+17. sort()
+==================================================
+
+Sort elements.
+
+Example:
+
+const nums = [5,1,3];
+
+nums.sort();
+
+Important:
+
+For numbers:
+
+nums.sort((a,b) => a - b);
+
+Ascending
+
+nums.sort((a,b) => b - a);
+
+Descending
+
+==================================================
+18. reverse()
+==================================================
+
+Reverse array.
+
+Example:
+
+arr.reverse();
+
+==================================================
+19. forEach()
+==================================================
+
+Loops through array.
+
+Example:
+
+arr.forEach(item => {
+  console.log(item);
+});
+
+==================================================
+20. for...of
+==================================================
+
+Modern looping.
+
+Example:
+
+for(const item of arr) {
+  console.log(item);
+}
+
+Preferred over traditional loops in many cases.
+
+==================================================
+21. Array Destructuring
+==================================================
+
+Extract values easily.
+
+Example:
+
+const [a,b] = [10,20];
+
+console.log(a);
+
+Output:
+10
+
+==================================================
+22. Spread Operator (...)
+==================================================
+
+Copy arrays.
+
+Example:
+
+const arr1 = [1,2];
+
+const arr2 = [...arr1];
+
+Merge arrays.
+
+const result = [...arr1, ...arr2];
+
+==================================================
+23. Array.from()
+==================================================
+
+Convert iterable into array.
+
+Example:
+
+const str = "Hello";
+
+const arr = Array.from(str);
+
+Result:
+["H","e","l","l","o"]
+
+==================================================
+24. Array.of()
+==================================================
+
+Creates array from values.
+
+Example:
+
+const arr = Array.of(1,2,3);
+
+==================================================
+25. Multi-Dimensional Arrays
+==================================================
+
+Array inside array.
+
+Example:
+
+const matrix = [
+  [1,2],
+  [3,4]
+];
+
+Access:
+
+matrix[0][1];
+
+Output:
+2
+
+==================================================
+26. Arrays vs Objects
+==================================================
+
+Array:
+Indexed data
+
+Example:
+
+["Apple","Mango"]
+
+Object:
+Key-value data
+
+Example:
+
+{
+  name: "Nency"
+}
+
+==================================================
+Quick Revision
+==================================================
+
+push()
+→ Add at end
+
+pop()
+→ Remove last
+
+unshift()
+→ Add at beginning
+
+shift()
+→ Remove first
+
+splice()
+→ Add/Remove/Replace
+
+slice()
+→ Copy portion
+
+concat()
+→ Merge arrays
+
+find()
+→ First match
+
+findIndex()
+→ Matching index
+
+filter()
+→ Multiple matches
+
+map()
+→ Transform data
+
+reduce()
+→ Single value
+
+sort()
+→ Sort data
+
+forEach()
+→ Loop
+
+for...of
+→ Modern loop
+
+Destructuring
+→ Extract values
+
+Spread (...)
+→ Copy/Merge arrays
